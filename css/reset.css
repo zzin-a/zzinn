@@ -1,0 +1,188 @@
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+    /* -webkit-tap-highlight-color : 모바일에서 클릭시 hover효과처럼 보이는 색상지정 */
+    -webkit-tap-highlight-color: rgba(0,0,0,0.1);
+}
+/*html5추가 시멘틱엘리먼트를 익스하위버전에서 블럭으로 인식되도록함*/
+article,aside,details,figcaption,figure,footer,header,hgroup,menu,nav,section,main {display: block}
+/* 페이지안의 모든 폰트의 줄간격을 1.5로 통일시킴
+모바일 크롬, 모바일 사파리 브라우져의 텍스트 자동확대 방지*/
+/* -webkit-text-size-adjust:none ios는 viwefort에 따라 사이즈가 달라질 수 있으므로 자동확대를 방지하기 위해 사용한 것 */
+body {line-height: 1.5; -webkit-text-size-adjust:none}
+/* 리스트 기호 빼기 */
+ol,ul {list-style: none}
+/* 칸의 선을 합치기, 칸의 간격없애기, 가로를 늘려줌 */
+table {border-collapse: collapse; border-spacing: 0; width: 100%;}
+/* button태그에 손모양 커서 */
+button {cursor:pointer; background: none; border: none;}
+/* 익스하위버전에서 이미지 선없애기 */
+fieldset,img {border: 0; vertical-align: top;}
+/* 태그 기본 기울임꼴 제거 */
+address,em {font-style: normal;}
+/* iframe으로 외부컨텐츠를 연결했을때
+외부컨텐츠안쪽내용이 우리페이지에 영향을 주지못하도록 가려줌*/
+iframe {overflow: hidden; border: 0;}
+/* 굵기 빼고 헤딩태그 폰트크기를 body에 선언한 크기와 일치시킴 */
+h1,h2,h3,h4,h5,h6 {font-weight: normal; font-size: 100%;}
+/* 폼요소의 높이가 다를때 요소끼리 세로정렬시킴 */
+input,select,textarea,button { vertical-align: middle; margin: 0; padding: 0; border-radius: 0; }    
+/* ios 하위버전, 상위버전에서 폼 요소 스타일 초기화 */
+button,select,input { -webkit-appearance: none; appearance: none; -webkit-tap-highlight-color: rgba(0,0,0,0.1); }
+/* textarea 리사이즈기능 빼기 */
+textarea {resize: none;}
+
+blockquote, q {quotes: none;}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+
+/* 모바일 -> 레이아웃이 가변이기 때문에 늘어나지 못하도록 막아주는 역할 */
+*,:before, :after {box-sizing: border-box;}
+
+/* legend,caption,메뉴제목,섹션제목 블라인드*/
+legend,caption,.blind,input[type="checkbox"],input[type="radio"],input[type="file"] {position: absolute; overflow: hidden; clip: rect(0 0 0 0); margin: -1px; width: 1px; height: 1px}
+
+.clearfix:after { content: ''; display: block; clear: both; }
+
+
+
+/************************* 공통스타일 *************************/
+/* 폼요소는 폰트가 브라우저마다 지정되어 있으므로 따로 선언 */
+body,input,button,select,textarea,table {
+    font-family:'Lato','Noto Sans KR','맑은 고딕','malgun gothic',sans-serif;
+    font-size: 15px;
+    color:#111;
+}
+a {
+    color: #373737;
+    text-decoration: none;
+}
+h1, h2, h3 {color: #000; font-weight: 500;}
+
+/* 스킵네비게이션(공통) */
+#skipNavi { position: relative; }
+#skipNavi a { position: absolute; left: 0; top: -9999px; width: 100%; line-height: 40px; text-align: center; font-size: 14px; background: #ddd; color: #fff; }
+#skipNavi a:hover, #skipNavi a:active, #skipNavi a:focus { top: 0; }
+
+
+
+
+
+
+
+
+
+/* 폼요소 공통 */
+
+/* ---placeholder 공통컬러--- */
+input::-webkit-input-placeholder {color: #bbbbbb;}
+input:-moz-placeholder {color: #bbbbbb;}
+input::-moz-placeholder {color: #bbbbbb; opacity:1;}
+input:-ms-input-placeholder {color:#bbbbbb !important;}
+
+
+textarea::-webkit-input-placeholder {color: #bbbbbb;}
+textarea:-moz-placeholder {color: #bbbbbb;}
+textarea::-moz-placeholder {color: #bbbbbb; opacity:1;}
+textarea:-ms-input-placeholder {color:#bbbbbb;}
+
+/* ie input x버튼 가리기 ie 10,11 적용*/
+input[type="text"]::-ms-clear { display: none; }
+
+/* ie input password 아이콘 가리기 ie 10,11 적용*/
+input[type="password"]::-ms-reveal{ display: none; }
+
+/* 인접형제 선택자로 checkbox다음에 오는 label 선택 */
+input[type="checkbox"] + label { position: relative; padding-left: 40px; cursor: pointer; color: #292929; }
+input[type="checkbox"] + label em { color: #009223; }
+input[type="checkbox"] + label:before { content: ''; position: absolute; left: 0; top: -2px; width: 26px; height: 26px; border: 2px solid #dddddd; border-radius: 50%; }
+input[type="checkbox"] + label:after { content: ''; position: absolute; left: 6px; top: 0; width: 0px; height: 20px; background: url(../images/icon_checkbox.png) no-repeat; transition: all 0.2s; }
+
+input[type="checkbox"]:checked + label:after { width: 24px; } 
+
+/* input text 공통 */
+input{ outline: none; }
+input[type="text"] { background: #f8f8f8; height: 45px; width: 100%; border: none; padding: 0 15px; color: #292929; box-sizing: border-box; }
+input.input_small { width: 200px; }
+
+/* select 공통 */
+.select_wrap { border: 2px solid #dddddd; display: inline-block; width: 196px; box-sizing: border-box; position: relative; }
+.select_wrap select { width: 100%; height: 41px; border: none; color: #999999; padding-left: 9px; outline: none; background: #fff; }
+
+/* 익스 화살표 제거 */
+select::-ms-expand { display: none; }
+.select_wrap:after { content: ''; position: absolute; right: 10px; top: 50%; width: 12px; height: 7px; margin-top: -3px; background: url(../images/icon_select_arr.png) no-repeat; }
+
+/* textarea 공통 */
+textarea { background: #f8f8f8; border: none; width: 100%; outline: none; padding: 15px; box-sizing: border-box; }
+
+
+
+
+
+
+
+
+
+
+/* ****************게시판 테이블 공통 스타일************** */
+.board_wrap { border-top: 1px solid #000; }
+.board_wrap table {table-layout: fixed;}
+.board_wrap table th { font-weight: normal; background: #f5f5f5; }
+
+/* ios문제대응(table에 talbe-layout:fixde 지정시 ios에서 col의 width가 안먹는 버그가 있기 때문에 따로 width지정) */
+.board_wrap table .th01{width: 10%;}
+.board_wrap table .th03{width: 10%;}
+.board_wrap table tbody td:nth-child(2) { text-align: left; }
+.board_wrap table th,
+.board_wrap table td {
+    border-bottom: 1px solid #eee;
+    font-size: 16px;
+    padding: 18px 0;
+    text-align: center;
+}
+.board_wrap table td { color: #555; padding: 11px 0;}
+.board_wrap table td a {color: #555;}
+
+/* 게시판 하단 선 스타일 */
+.board_wrap table tr:last-child td { border-bottom: 1px solid #ddd; }
+
+/* -게시판 제목 말줄임- */
+.board_wrap table .link_board { white-space: nowrap; text-overflow: ellipsis; overflow: hidden; display: inline-block; max-width: 90%; }
+
+/* **** 게시판 pagination 공통 스타일 ***** */
+.board_wrap .pagination_wrap { text-align: center; padding-top: 20px; }
+.board_wrap .pagination_wrap .pagination { display: inline-block; vertical-align: top; }
+.board_wrap .pagination .btn_paging { float: left; line-height: 40px; height: 40px; }
+.board_wrap .pagination .first,
+.board_wrap .pagination .prev,
+.board_wrap .pagination .next,
+.board_wrap .pagination .last {width: 22px;text-indent: -9999px;}
+
+
+/* easeOutExpo */
+.easeOutExpo {
+	-webkit-transition-timing-function:cubic-bezier(0.190, 1.000, 0.220, 1.000) !important; 
+	-moz-transition-timing-function:cubic-bezier(0.190, 1.000, 0.220, 1.000) !important; 
+	-o-transition-timing-function:cubic-bezier(0.190, 1.000, 0.220, 1.000) !important; 
+	transition-timing-function:cubic-bezier(0.190, 1.000, 0.220, 1.000) !important; /* easeOutExpo */
+}
